@@ -1,0 +1,173 @@
+:root {
+    --azul: #00c2cb;
+    --laranja: #ff8331;
+    --branco: #fff;
+    --preto: #000;
+    --sombra: #999;
+    --texto1: #666;
+    --texto2: #444;
+    --translucido: rgba(153, 153, 153, 0.548);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,
+body {
+    display: grid;
+    height: 100%;
+    place-items: center;
+    text-align: center;
+    background: var(--branco);
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    background: var(--branco);
+    padding: 20px 30px;
+    border: 1px solid var(--laranja);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container .post {
+    display: none;
+}
+
+.container .text {
+    font-size: 25px;
+    color: #666;
+    font-weight: 500;
+}
+
+.container .edit {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 16px;
+    color: #666;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.container .edit:hover {
+    text-decoration: underline;
+}
+
+.container .star-widget input {
+    display: none;
+}
+
+.star-widget label {
+    font-size: 40px;
+    color: var(--sombra);
+    padding: 10px;
+    float: right;
+    transition: all 0.2s ease;
+}
+
+input:not(:checked)~label:hover,
+input:not(:checked)~label:hover~label {
+    color: var(--azul);
+}
+
+input:checked~label {
+    color: var(--azul);
+}
+
+input#rate-5:checked~label {
+    color: var(--laranja);
+    text-shadow: 0 0 10px var(--sombra);
+}
+
+#rate-1:checked~form header:before {
+    content: "Péssima";
+}
+
+#rate-2:checked~form header:before {
+    content: "Ruim";
+}
+
+#rate-3:checked~form header:before {
+    content: "Boa";
+}
+
+#rate-4:checked~form header:before {
+    content: "Muito boa";
+}
+
+#rate-5:checked~form header:before {
+    content: "Ótima";
+}
+
+.container form {
+    display: none;
+}
+
+input:checked~form {
+    display: block;
+}
+
+form header {
+    width: 100%;
+    font-size: 25px;
+    color: var(--laranja);
+    font-weight: 500;
+    margin: 5px 0 20px 0;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+form .textarea {
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+
+form .textarea textarea {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: var(--texto1);
+    border: 1px solid var(--laranja);
+    background: var(--branco);
+    padding: 10px;
+    font-size: 17px;
+    resize: none;
+}
+
+.textarea textarea:focus {
+    border-color: var(--sombra);
+}
+
+form .btn {
+    height: 45px;
+    width: 100%;
+    margin: 15px 0;
+}
+
+form .btn button {
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--sombra);
+    outline: none;
+    background: var(--azul);
+    color: var(--branco);
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form .btn button:hover {
+    background: var(--laranja);
+}
